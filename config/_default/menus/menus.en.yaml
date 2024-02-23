@@ -3165,8 +3165,8 @@ main:
     identifier: observability_pipelines
     parent: log_management_heading
     weight: 10000
-  - name: Build Pipelines
-    url: observability_pipelines/build_pipelines
+  - name: Set Up Pipelines
+    url: observability_pipelines/set_up_pipelines
     identifier: observability_pipelines_build_pipelines
     parent: observability_pipelines
     weight: 1
