@@ -3165,6 +3165,41 @@ main:
     identifier: observability_pipelines
     parent: log_management_heading
     weight: 10000
+  - name: Build Pipelines
+    url: observability_pipelines/build_pipelines
+    identifier: observability_pipelines_build_pipelines
+    parent: observability_pipelines
+    weight: 1
+  - name: Install the Worker
+    url: observability_pipelines/install_the_worker
+    identifier: observability_pipelines_install_worker
+    parent: observability_pipelines
+    weight: 2
+  - name: Docker
+    url: observability_pipelines/install_the_worker/docker
+    identifier: observability_pipelines_install_worker_docker
+    parent: observability_pipelines_install_worker
+    weight: 2001
+  - name: Kubernetes
+    url: observability_pipelines/install_the_worker/kubernetes
+    identifier: observability_pipelines_install_worker_kubernetes
+    parent: observability_pipelines_install_worker
+    weight: 2002
+  - name: Linux
+    url: observability_pipelines/install_the_worker/linux
+    identifier: observability_pipelines_install_worker_linux
+    parent: observability_pipelines_install_worker
+    weight: 2002
+  - name: CloudFormation
+    url: observability_pipelines/install_the_worker/cloudformation
+    identifier: observability_pipelines_install_worker_cloudformation
+    parent: observability_pipelines_install_worker
+    weight: 2003
+  - name: Terraform (AWS)
+    url: observability_pipelines/install_the_worker/terraform_aws
+    identifier: observability_pipelines_install_worker_terraform_aws
+    parent: observability_pipelines_install_worker
+    weight: 2003
   - name: Log Management
     url: logs/
     pre: log
