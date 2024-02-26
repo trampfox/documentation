@@ -6,29 +6,13 @@ disable_toc: false
 
 ## Overview
 
-The following use cases are available for you to start creating your pipelines in Observability Pipelines:
+The following use cases are available for you to start using Observability Pipelines:
 
 - Log volume control: Cut down on your log volume and trim down the size of your logs before data leaves your infrastructure or network.
 - Dual ship logs: Send your logs to Datadog and another destination.
-- Split logs: Send your devops logs to Datadog and your security logs to another destination.
+- Split logs: Send your devops logs to Datadog and security logs to another destination.
 - Archive logs: Send logs to Datadog log archives and another destination.
 - Redact data before routing your logs to a destination.
-
-After you select one of the use cases, [set up your pipeline](#set-up-a-pipeline) with the following steps:
-
-1. Select a log source.
-1. Add processors to manipulate your log data.
-1. Configure the destinations to send your logs to.
-1. Install the Observability Pipelines Worker.
-
-**[INSTRUCTIONS ARE WIP]**
-
-## Set up a pipeline
-
-1. Navigate to [Observability Pipelines][LINK].
-1. Select a use case.
-
-### Select a log source
 
 These are the available sources for each use case:
 
@@ -39,6 +23,68 @@ These are the available sources for each use case:
 | Split logs         |  {{< X >}} |  {{< X >}} | {{< X >}}  |  {{< X >}}   |
 | Archive logs       | {{< X >}}  |  {{< X >}} | {{< X >}}  |  {{< X >}}   |
 | Redact data        |  {{< X >}} |  {{< X >}} | {{< X >}}  |  {{< X >}}   |
+
+This document walks you through the following steps for setting up Observability Pipelines:
+
+1. [Configure your log source](#configure-your-log-source).
+1. [Set up a pipeline](#set-up-a-pipeline).   
+    a. Select your log source.   
+    b. Add processors to manipulate your log data.   
+    c. Configure the destinations to send your logs to.  
+    d. Install the Observability Pipelines Worker.
+1. [Connect your log source to the Observability Pipelines Worker](#connect-your-log-source-to-the-observability-pipelines-worker).
+
+## Configure your log source
+
+Follow the instructions to configure your log source.
+
+**[INSTRUCTIONS ARE WIP]**
+
+{{< tabs >}}
+{{% tab "Splunk HEC" %}}
+
+### Set up the Splunk index
+
+<div class="alert alert-info">Observability Pipelines supports acknowledgments when you enable the <strong>Enable Indexer Acknowledgments</strong> setting on the input. Indexer acknowledgement is only available for Splunk Enterprise</div>
+
+You must provision a Splunk HEC input and HEC token on the Splunk index so that the Observability Pipelines Worker can send logs to Splunk. Follow the instructions in the [Configure HTTP Event Collector on Splunk Cloud Platform][1] section.
+
+After configuring the HTTP Event Collector, use the Splunk HEC token to set up Observability Pipelines.
+
+[1]: https://docs.splunk.com/Documentation/Splunk/latest/Data/UsetheHTTPEventCollector
+
+{{% /tab %}}
+{{% tab "Splunk TCP" %}}
+
+Text inside tab. [Link references][1] must be inside the tab.
+
+[1]: /agent/guide/agent-commands/
+
+{{% /tab %}}
+
+{{% tab "Sumo Logic" %}}
+
+Text inside tab. [Link references][1] must be inside the tab.
+
+[1]: /agent/guide/agent-commands/
+
+{{% /tab %}}
+{{% tab "Datadog" %}}
+
+Text inside tab. [Link references][1] must be inside the tab.
+
+[1]: /agent/guide/agent-commands/
+
+{{% /tab %}}
+{{< /tabs >}}
+
+
+## Set up a pipeline
+
+1. Navigate to [Observability Pipelines][LINK].
+1. Select a use case.
+
+### Select your log source
 
 After you select a source on the onboarding page, you need to provide the following information for the specific source:
 
@@ -170,6 +216,8 @@ Text inside tab. [Link references][1] must be inside the tab.
 1. Click the tile for your installation platform.
 1. The environment variables required depends on the destination.
 
+**[INSTRUCTIONS ARE WIP]**
+
 {{< tabs >}}
 {{% tab "Splunk HEC" %}}
 
@@ -266,3 +314,52 @@ TKTK
 
 {{% /tab %}}
 {{< /tabs >}}
+
+After the workers are installed, navigate back to the onboarding page and click **Deploy** to deploy your pipeline.
+
+## Connect your log source to the Observability Pipelines Worker
+
+Follow the instructions to connect your specific log source to the Worker.
+
+**[INSTRUCTIONS ARE WIP]**
+
+{{< tabs >}}
+{{% tab "Splunk HEC" %}}
+
+### Set up the Splunk index
+
+Update your Splunk collector with the HEC token that you created earlier and used for setting up the Observability Pipelines Worker.
+
+You can update most HEC-compatible collectors with the IP/URL of the host (or load balancer) associated with the Observability Pipelines Worker to send your logs to the Worker. For Terraform installs, the `lb-dns` output provides the value to use. For CloudFormation installs, the `LoadBalancerDNS` CloudFormation output provides the URL to use.
+
+{{% /tab %}}
+{{% tab "Splunk TCP" %}}
+
+### Connect your Splunk connector to the Worker
+
+
+Text inside tab. [Link references][1] must be inside the tab.
+
+[1]: /agent/guide/agent-commands/
+
+{{% /tab %}}
+
+{{% tab "Sumo Logic" %}}
+
+Text inside tab. [Link references][1] must be inside the tab.
+
+[1]: /agent/guide/agent-commands/
+
+{{% /tab %}}
+{{% tab "Datadog" %}}
+
+Text inside tab. [Link references][1] must be inside the tab.
+
+[1]: /agent/guide/agent-commands/
+
+{{% /tab %}}
+{{< /tabs >}}
+
+After your log source is connected to the Worker, you can see the throughput of logs flowing through the pipeline in the [Pipelines][LINK] page. If you want to see the actual logs, go to the destination the logs are sent to. For example, if logs are sent to Datadog, go to the [Log Explorer][2] to see your logs.
+
+[2]: https://app.datadoghq.com/logs
