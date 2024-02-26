@@ -83,44 +83,7 @@ Text inside tab. [Link references][1] must be inside the tab.
 
 1. Navigate to [Observability Pipelines][LINK].
 1. Select a use case.
-
-### Select your log source
-
-After you select a source on the onboarding page, you need to provide the following information for the specific source:
-
-{{< tabs >}}
-{{% tab "Splunk HEC" %}}
-
-1. Select **Splunk HEC** as the source.
-1. Enter the Splunk HEC endpoint in the Splunk HEC **Address** field. For example `https://<your_account>.splunkcloud.com:8088/services/collector/event`. See [Send Data to HTTP Event Collector][1] for more information.
-1. Optionally, enter the Splunk HEC token.
-
-[1]: https://docs.splunk.com/Documentation/Splunk/latest/Data/UsetheHTTPEventCollector#Send_data_to_HTTP_Event_Collector
-
-{{% /tab %}}
-{{% tab "Splunk TCP" %}}
-
-Text inside tab. [Link references][1] must be inside the tab.
-
-[1]: /agent/guide/agent-commands/
-
-{{% /tab %}}
-
-{{% tab "Sumo Logic" %}}
-
-Text inside tab. [Link references][1] must be inside the tab.
-
-[1]: /agent/guide/agent-commands/
-
-{{% /tab %}}
-{{% tab "Datadog Agent" %}}
-
-Text inside tab. [Link references][1] must be inside the tab.
-
-[1]: /agent/guide/agent-commands/
-
-{{% /tab %}}
-{{< /tabs >}}
+1. Select a log source.
 
 ### Add processors
 
@@ -181,7 +144,10 @@ The destinations are automatically selected for you based on the use case and th
 {{< tabs >}}
 {{% tab "Splunk HEC" %}}
 
-1. Enter in the Splunk endpoint URL.
+1. Enter the Splunk Index.
+1. Select if you want the logs encoded in **JSON** or **Raw**.
+1. Select **Auto Extract Timestamp** if you to enable it.
+1. Enter the sourcetype.
 1. Click **Next: Install**.
 
 [1]: https://docs.splunk.com/Documentation/Splunk/latest/Data/UsetheHTTPEventCollector#Send_data_to_HTTP_Event_Collector
