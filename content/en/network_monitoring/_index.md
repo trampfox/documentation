@@ -13,12 +13,12 @@ further_reading:
   - link: "https://www.datadoghq.com/blog/network-performance-monitoring"
     tag: "Blog"
     text: "Introducing Datadog Network Performance Monitoring"
+  - link: "https://www.datadoghq.com/blog/network-device-monitoring/"
+    tag: "Blog"
+    text: "Introducing Network Device Monitoring"
   - link: 'https://www.datadoghq.com/blog/monitor-dns-with-datadog/'
     tag: 'Blog'
     text: 'Monitor DNS with Datadog'
-  - link: "https://www.datadoghq.com/blog/datacenter-monitoring-dashboards/"
-    tag: "Blog"
-    text: "Monitor datacenters and network devices with Datadog"
   - link: "https://www.datadoghq.com/blog/monitor-cilium-cni-with-datadog/"
     tag: "Blog"
     text: "Monitor Cilium-managed infrastructure with Datadog"
