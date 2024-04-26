@@ -83,7 +83,7 @@
         contents:
 
         - action: integrations
-          branch: prod
+          branch: bryce/add-ml-blog-links
           globs:
           - integration/*/*_metadata.csv
           - integration/*/manifest.json
