@@ -162,6 +162,7 @@ The .NET Tracer works on .NET Core 2.0, 2.1, 2.2, and 3.0, but these versions re
 |-----------------------------------------------|-------------------------------------------|------------------------------------------------------------------------|-----------------------------------------|
 | JIT Compiler bug on Linux/x64                 | 2.0.x,</br>2.1.0-2.1.11,</br>2.2.0-2.2.5  | Upgrade .NET Core to the latest patch version, or follow steps in the linked issue | [DataDog/dd-trace-dotnet/issues/302][6] |
 | Resource lookup bug with a non `en-US` locale | 2.0.0                                     | Upgrade .NET Core to 2.0.3 or above                                    | [dotnet/runtime/issues/23938][7]        |
+| Runtime crash on application exit on Linux/macOS | 2.x.x                                  | Upgrade .NET Core to 3.0.0 or above                                    | [dotnet/runtime/issues/11885][18]        |
 
 ## Supported Datadog Agent versions
 
@@ -215,3 +216,4 @@ Version updates imply the following changes to runtime support:
 [15]: https://github.com/dotnet/core/tree/main/release-notes
 [16]: https://www.gnu.org/software/libc/
 [17]: https://musl.libc.org/
+[18]: https://github.com/dotnet/runtime/issues/11885
