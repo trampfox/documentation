@@ -55,7 +55,7 @@ The .NET Tracer supports automatic instrumentation on the following architecture
 | Alpine Linux x64 (`linux-musl-x64`)       | [GA](#support-ga)     | latest                                 |
 | Linux ARM64 (`linux-arm64`)               | [GA](#support-ga)     | .NET 5+ only, added in version 1.27.0  |
 
-Note that running x86 applications on Windows x64 is supported.
+Note that running 32-bit applications on Windows x64 is supported.
 
 ## Supported operating systems
 
@@ -143,7 +143,7 @@ Don't see the library you're looking for? First, check if the library produces o
 
 ## OpenTelemetry based integrations
 
-Some libraries provide built in [Activity based tracing][13]. This is the same mechanism the OpenTelemetry project relies on. By setting `DD_TRACE_OTEL_ENABLED` to `true`, the .NET tracer will automatically resurface traces provided by the libraries themselves. This is possible since [version 2.21.0][4]. Here are a list of libraries that are tested with this setup (more libraries provide such tracing but aren't specifically tested).
+Some libraries provide built in [Activity based tracing][13]. This is the same mechanism the OpenTelemetry project relies on. By setting `DD_TRACE_OTEL_ENABLED` to `true`, the .NET tracer will automatically resurface traces provided by the libraries themselves. This is possible since [version 2.21.0][4]. For the best Datadog APM experience, the following list of libraries have been tested for complete interoperability with the .NET Tracer (more libraries provide such tracing but aren't specifically tested).
 
 | Framework or library            | NuGet package                                                                 | Integration Name     | Specific instructions         |
 | ------------------------------- | ----------------------------------------------------------------------------- | -------------------- | ----------------------------- |

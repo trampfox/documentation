@@ -190,11 +190,11 @@ Custom instrumentation depends on automatic instrumentation and includes additio
 {{% tab "Windows" %}}
 
 <div class="alert alert-warning">
-  <strong>Note:</strong> Starting v3.0.0, custom instrumentation requires you also use automatic instrumentation. You should aim to keep both automatic and custom instrumentation package versions (for example: MSI and NuGet) in sync, and ensure you don't mix major versions of packages.
+  <strong>Note:</strong> Starting with v3.0.0, custom instrumentation requires you also use automatic instrumentation. You should aim to keep both automatic and custom instrumentation package versions (for example: MSI and NuGet) in sync, and ensure you don't mix major versions of packages.
 </div>
 
 To use custom instrumentation in your .NET application:
-1. Instrument your application using auomatic instrumentation.
+1. Instrument your application using automatic instrumentation.
 2. Add the `Datadog.Trace` [NuGet package][1] to your application.
 3. In your application code, access the global tracer through the `Datadog.Trace.Tracer.Instance` property to create new spans.
 
