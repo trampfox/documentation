@@ -723,7 +723,7 @@ class Integrations:
         if manifest_json and "/dogweb/" not in file_name:
             if not manifest_json["display_on_public_website"]:
                 display_on_public = False
-        
+
         if not marketplace and display_on_public:
             try:
                 result = source_comment + format_link_file(file_name,regex_skip_sections_start,regex_skip_sections_end)
@@ -750,7 +750,7 @@ class Integrations:
                 else:
                     result = source_comment + updated_markdown
         else:
-            print(f'Skipping markdown for: {file_name}')            
+            print(f'Skipping markdown for: {file_name}')
 
         ## Check if there is a integration tab logic in the integration file:
         if "<!-- xxx tabs xxx -->" in result:
@@ -801,22 +801,30 @@ class Integrations:
             collision_name = self.get_collision_alternate_name(file_name)
             print(f"{file_name} {collision_name}")
 
-        if metrics_exist:
-            result = re.sub(
-                self.regex_metrics,
-                r'\1{{< get-metrics-from-git "%s" >}}\n\3\4'
-                % format(title if not exist_collision else collision_name),
-                result,
-                0,
-            )
-        if service_check_exist:
-            result = re.sub(
-                self.regex_service_check,
-                r'\1{{< get-service-checks-from-git "%s" >}}\n\3\4'
-                % format(title if not exist_collision else collision_name),
-                result,
-                0,
-            )
+        # if we have merged integrations upstream in the source repo
+        # there can be multiple instances of code we are trying to regex out which doesn't play nice
+        # lets split the file and apply it in chunks to avoid these issues
+        parts = result.split("## Data Collected")
+        new_parts = []
+        for part in parts:
+            if metrics_exist:
+                part = re.sub(
+                    self.regex_metrics,
+                    r'\1{{< get-metrics-from-git "%s" >}}\n\3\4'
+                    % format(title if not exist_collision else collision_name),
+                    part,
+                    0,
+                )
+            if service_check_exist:
+                part = re.sub(
+                    self.regex_service_check,
+                    r'\1{{< get-service-checks-from-git "%s" >}}\n\3\4'
+                    % format(title if not exist_collision else collision_name),
+                    part,
+                    0,
+                )
+            new_parts.append(part)
+        result = "## Data Collected".join(new_parts)
 
         if not exist_already and no_integration_issue:
             out_name = self.content_integrations_dir + new_file_name
