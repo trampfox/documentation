@@ -119,7 +119,7 @@
         contents:
 
         - action: integrations
-          branch: docs8102/multi-integration-test
+          branch: docs8102/merge-snowflake-int-docs
           globs:
           - "*/metadata.csv"
           - "*/manifest.json"
