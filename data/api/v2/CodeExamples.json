@@ -1057,6 +1057,13 @@
       "description": "Update an existing rule returns \"Rule updated successfully\" response"
     }
   ],
+  "UpsertCatalogEntity": [
+    {
+      "group": "software_catalog",
+      "suffix": "_104275450",
+      "description": "Create or update software catalog entity using schema v3 returns \"CREATED\" response"
+    }
+  ],
   "AggregateSpans": [
     {
       "group": "spans",
